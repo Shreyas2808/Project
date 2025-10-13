@@ -1,0 +1,129 @@
+Family,Crop Name,Fertilizer Used,Nitrogen (N) (%),Phosphorus (P) (%),Potassium (K) (%)
+Poaceae,Sugarcane,NPK 10-26-26 or Urea,46,26,26
+Poaceae,Maize,NPK 10-26-26 or Urea,46,26,26
+Poaceae,Sorghum,NPK 10-26-26 or Urea,46,26,26
+Fabaceae,Groundnut,Single Super Phosphate (SSP),0,16,0
+Fabaceae,Chickpea,Single Super Phosphate (SSP),0,16,0
+Fabaceae,Soybean,Di-Ammonium Phosphate (DAP),18,46,0
+Solanaceae,Tomato,NPK 12-32-16 or Urea,46,32,16
+Solanaceae,Potato,NPK 12-32-16 or Urea,46,32,16
+Solanaceae,Eggplant,NPK 12-32-16 or Urea,46,32,16
+Asteraceae,Sunflower,NPK 15-15-15 or Urea,46,15,15
+Asteraceae,Safflower,NPK 15-15-15 or Urea,46,15,15
+Asteraceae,Lettuce,NPK 15-15-15 or Urea,46,15,15
+Poaceae,Wheat,NPK 10-26-26 or Urea,46,26,26
+Poaceae,Pearl Millet,NPK 10-26-26 or Urea,46,26,26
+Fabaceae,Pigeon Pea,Di-Ammonium Phosphate (DAP),18,46,0
+Fabaceae,Lentil,Single Super Phosphate (SSP),0,16,0
+Solanaceae,Chili Pepper,NPK 12-32-16 or Urea,46,32,16
+Solanaceae,Tobacco,NPK 12-32-16 or Urea,46,32,16
+Asteraceae,Marigold,NPK 15-15-15 or Urea,46,32,15
+Asteraceae,Chrysanthemum,NPK 15-15-15 or Urea,46,15,15
+Asteraceae,Artichoke,NPK 15-15-15 or Urea,46,15,15
+Poaceae,Barley,NPK 10-26-26 or Urea,46,26,26
+Fabaceae,Green Gram,Single Super Phosphate (SSP),0,16,0
+Solanaceae,Capsicum,NPK 12-32-16 or Urea,46,32,16
+Asteraceae,Daisy,NPK 15-15-15 or Urea,46,15,15
+Malvaceae,Cotton,Di-Ammonium Phosphate (DAP),18,46,0
+Asteraceae,Marigold,NPK 20-20-20,20,20,20
+Asteraceae,Chrysanthemum,NPK 20-20-20,20,20,20
+Asteraceae,Aster,NPK 20-20-20,20,20,20
+Asteraceae,Cosmos,NPK 20-20-20,20,20,20
+Asteraceae,Zinnia,NPK 20-20-20,20,20,20
+Asteraceae,Dahlia,NPK 20-20-20,20,20,20
+Rosaceae,Rose,NPK 19-19-19,19,19,19
+Rosaceae,Peony,NPK 19-19-19,19,19,19
+Rosaceae,Apple Blossom,NPK 19-19-19,19,19,19
+Rosaceae,Strawberry,NPK 19-19-19,19,19,19
+Rosaceae,Cherry Blossom,NPK 19-19-19,19,19,19
+Rosaceae,Hawthorn,NPK 19-19-19,19,19,19
+Oleaceae,Jasmine,NPK 15-15-15,15,15,15
+Oleaceae,Olive,NPK 15-15-15,15,15,15
+Oleaceae,Ash,NPK 15-15-15,15,15,15
+Oleaceae,Forsythia,NPK 15-15-15,15,15,15
+Oleaceae,Privet,NPK 15-15-15,15,15,15
+Oleaceae,Lilac,NPK 15-15-15,15,15,15
+Malvaceae,Hibiscus,NPK 10-26-26,10,26,26
+Malvaceae,Cotton Flower,NPK 10-26-26,10,26,26
+Malvaceae,Okra Blossom,NPK 10-26-26,10,26,26
+Malvaceae,Hollyhock,NPK 10-26-26,10,26,26
+Malvaceae,Mallow,NPK 10-26-26,10,26,26
+Malvaceae,Chinese Lantern,NPK 10-26-26,10,26,26
+Nelumbonaceae,Lotus,NPK 20-10-10,20,10,10
+Nelumbonaceae,Water Lily,NPK 20-10-10,20,10,10
+Nelumbonaceae,Blue Lotus,NPK 20-10-10,20,10,10
+Nelumbonaceae,Sacred Lotus,NPK 20-10-10,20,10,10
+Nelumbonaceae,Egyptian Lotus,NPK 20-10-10,20,10,10
+Nelumbonaceae,American Lotus,NPK 20-10-10,20,10,10
+Lamiaceae,Lavender,NPK 12-32-16,12,32,16
+Lamiaceae,Mint,NPK 12-32-16,12,32,16
+Lamiaceae,Sage,NPK 12-32-16,12,32,16
+Lamiaceae,Rosemary,NPK 12-32-16,12,32,16
+Lamiaceae,Thyme,NPK 12-32-16,12,32,16
+Lamiaceae,Basil,NPK 12-32-16,12,32,16
+Anacardiaceae,Mango,10-26-26,10,26,26
+Anacardiaceae,Cashew,10-26-26,10,26,26
+Anacardiaceae,Pistachio,10-26-26,10,26,26
+Anacardiaceae,Poison Ivy,10-26-26,10,26,26
+Anacardiaceae,Sumac,10-26-26,10,26,26
+Anacardiaceae,Marula,10-26-26,10,26,26
+Myrtaceae,Guava,20-20-0,20,20,0
+Myrtaceae,Clove,20-20-0,20,20,0
+Myrtaceae,Feijoa,20-20-0,20,20,0
+Myrtaceae,Myrtle,20-20-0,20,20,0
+Myrtaceae,Surinam Cherry,20-20-0,20,20,0
+Myrtaceae,Bayberry,20-20-0,20,20,0
+Lythraceae,Pomegranate,Complex NPK,12,32,16
+Lythraceae,Water Chestnut,Complex NPK,12,32,16
+Lythraceae,Crepe Myrtle,Complex NPK,12,32,16
+Lythraceae,Lagerstroemia,Complex NPK,12,32,16
+Lythraceae,Henna,Complex NPK,12,32,16
+Lythraceae,Desert Willow,Complex NPK,12,32,16
+Caricaceae,Papaya,19-19-19,19,19,19
+Caricaceae,Babaco,19-19-19,19,19,19
+Caricaceae,Mountain Papaya,19-19-19,19,19,19
+Caricaceae,Chamburo,19-19-19,19,19,19
+Caricaceae,Jarilla,19-19-19,19,19,19
+Caricaceae,Vasconcellea,19-19-19,19,19,19
+Musaceae,Banana,20-20-20,20,20,20
+Musaceae,Plantain,20-20-20,20,20,20
+Musaceae,Abyssinian Banana,20-20-20,20,20,20
+Musaceae,Ensete,20-20-20,20,20,20
+Musaceae,Musa,20-20-20,20,20,20
+Musaceae,Ornamental Banana,20-20-20,20,20,20
+Solanaceae,Tomato,Urea (IFFCO),46,0,0
+Solanaceae,Brinjal,Urea (IFFCO),46,0,0
+Solanaceae,Potato,Urea (IFFCO),46,0,0
+Solanaceae,Chili,Urea (IFFCO),46,0,0
+Solanaceae,Bell Pepper,Urea (IFFCO),46,0,0
+Solanaceae,Eggplant,Urea (IFFCO),46,0,0
+Malvaceae,Okra,Urea (IFFCO),46,0,0
+Malvaceae,Lady's Finger,Urea (IFFCO),46,0,0
+Malvaceae,Bhindi,Urea (IFFCO),46,0,0
+Malvaceae,Abelmoschus esculentus,Urea (IFFCO),46,0,0
+Malvaceae,Hibiscus esculentus,Urea (IFFCO),46,0,0
+Malvaceae,Gumbo,Urea (IFFCO),46,0,0
+Cucurbitaceae,Bottle Gourd,Urea (IFFCO),46,0,0
+Cucurbitaceae,Pumpkin,Urea (IFFCO),46,0,0
+Cucurbitaceae,Cucumber,Urea (IFFCO),46,0,0
+Cucurbitaceae,Zucchini,Urea (IFFCO),46,0,0
+Cucurbitaceae,Squash,Urea (IFFCO),46,0,0
+Cucurbitaceae,Watermelon,Urea (IFFCO),46,0,0
+Brassicaceae,Cabbage,DAP (IFFCO),18,46,0
+Brassicaceae,Cauliflower,DAP (IFFCO),18,46,0
+Brassicaceae,Radish,DAP (IFFCO),18,46,0
+Brassicaceae,Broccoli,DAP (IFFCO),18,46,0
+Brassicaceae,Kale,DAP (IFFCO),18,46,0
+Brassicaceae,Turnip,DAP (IFFCO),18,46,0
+Amaranthaceae,Spinach,Urea (IFFCO),46,0,0
+Amaranthaceae,Beetroot,Urea (IFFCO),46,0,0
+Amaranthaceae,Amaranth,Urea (IFFCO),46,0,0
+Amaranthaceae,Lamb's Quarters,Urea (IFFCO),46,0,0
+Amaranthaceae,Pigweed,Urea (IFFCO),46,0,0
+Amaranthaceae,Chaff Flower,Urea (IFFCO),46,0,0
+Apiaceae,Coriander,Urea (IFFCO),46,0,0
+Apiaceae,Carrot,Urea (IFFCO),46,0,0
+Apiaceae,Celery,Urea (IFFCO),46,0,0
+Apiaceae,Parsley,Urea (IFFCO),46,0,0
+Apiaceae,Dill,Urea (IFFCO),46,0,0
+Apiaceae,Fennel,Urea (IFFCO),46,0,0
