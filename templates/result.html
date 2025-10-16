@@ -1,14 +1,88 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>Result</title>
+  <meta charset="UTF-8">
+  <title>Recommended Crops | SmartCrop</title>
   <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: "Poppins", sans-serif;
+      background: linear-gradient(135deg, #a8e063, #56ab2f);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+    .container {
+      background: #fff;
+      padding: 40px;
+      border-radius: 18px;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+      width: 500px;
+      text-align: center;
+      animation: fadeIn 0.5s ease-in-out;
+    }
+    h2 {
+      color: #2e8b57;
+      font-size: 24px;
+      margin-bottom: 10px;
+    }
+    p {
+      font-size: 15px;
+      color: #555;
+      margin-bottom: 20px;
+    }
+    ul {
+      list-style-type: none;
+      padding: 0;
+    }
+    li {
+      background: #f0fff0;
+      border: 1px solid #b0e0a8;
+      padding: 10px;
+      margin: 8px 0;
+      border-radius: 10px;
+      font-weight: 500;
+      color: #2e8b57;
+      transition: 0.3s;
+    }
+    li:hover {
+      background: #d0f0c0;
+      transform: scale(1.02);
+    }
+    a {
+      display: inline-block;
+      margin-top: 25px;
+      text-decoration: none;
+      background: #228b22;
+      color: white;
+      padding: 10px 20px;
+      border-radius: 10px;
+      font-weight: 500;
+      transition: 0.3s;
+    }
+    a:hover {
+      background: #006400;
+      transform: scale(1.05);
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
 </head>
 <body>
   <div class="container">
-    <h2>Recommended Crop</h2>
-    <p><strong>{{ result }}</strong></p>
-    <a href="{{ url_for('home') }}">Back</a>
+    <h2>🌾 Crops in the "{{ family }}" Family</h2>
+    <p>Using Fertilizer: <strong>{{ fertilizer }}</strong></p>
+    <ul>
+      {% for crop in crops %}
+        <li>{{ crop }}</li>
+      {% endfor %}
+    </ul>
+    <a href="{{ url_for('home') }}">🔙 Back to Dashboard</a>
   </div>
 </body>
 </html>

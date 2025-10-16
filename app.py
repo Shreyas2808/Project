@@ -1,81 +1,110 @@
-# app.py
 from flask import Flask, render_template, request, redirect, url_for, session
+from flask_sqlalchemy import SQLAlchemy
 import pandas as pd
-import joblib
 import os
 
 app = Flask(__name__)
-app.secret_key = 'replace_with_a_strong_secret'  # change before production
+app.secret_key = 'replace_with_a_strong_secret'
 
-# Paths
+# ---------- Database Setup ----------
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///users.db'
+app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+db = SQLAlchemy(app)
+
+# ---------- User Model ----------
+class User(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    username = db.Column(db.String(100), unique=True, nullable=False)
+    password = db.Column(db.String(100), nullable=False)
+
+# Create tables (run once)
+with app.app_context():
+    db.create_all()
+
+# ---------- Load Dataset ----------
 DATA_PATH = 'data/final_commercial_crops_karnataka.csv'
-MODEL_PATH = 'model/crop_model.pkl'
-SCALER_PATH = 'model/scaler.pkl'
-
-# Load dataset and model
 df = pd.read_csv(DATA_PATH, encoding='latin-1')
-model = joblib.load(MODEL_PATH)
-scaler = joblib.load(SCALER_PATH)
 
-# Dummy users (replace with DB later)
-users = {'admin': 'admin'}
-
+# ---------- Routes ----------
 @app.route('/')
 def home():
     if 'username' in session:
         return render_template('index.html', username=session['username'])
     return redirect(url_for('login'))
 
+# ---------------- LOGIN ----------------
 @app.route('/login', methods=['GET', 'POST'])
 def login():
     if request.method == 'POST':
-        u = request.form['username']
-        p = request.form['password']
-        if users.get(u) == p:
-            session['username'] = u
+        username = request.form['username']
+        password = request.form['password']
+
+        user = User.query.filter_by(username=username, password=password).first()
+        if user:
+            session['username'] = username
             return redirect(url_for('home'))
-        return render_template('login.html', error='Invalid credentials')
+        else:
+            return render_template('login.html', error="Invalid username or password")
     return render_template('login.html')
 
+# ---------------- SIGN UP ----------------
+@app.route('/signup', methods=['POST'])
+def signup():
+    username = request.form['new_username']
+    password = request.form['new_password']
+    confirm = request.form['confirm_password']
+
+    if password != confirm:
+        return render_template('login.html', signup_error='Passwords do not match')
+
+    existing_user = User.query.filter_by(username=username).first()
+    if existing_user:
+        return render_template('login.html', signup_error='Username already exists')
+
+    new_user = User(username=username, password=password)
+    db.session.add(new_user)
+    db.session.commit()
+    return render_template('login.html', error='Account created! Please log in.')
+
+# ---------------- LOGOUT ----------------
 @app.route('/logout')
 def logout():
     session.pop('username', None)
     return redirect(url_for('login'))
 
+# ---------------- RECOMMEND ----------------
 @app.route('/recommend', methods=['POST'])
 def recommend():
     if 'username' not in session:
         return redirect(url_for('login'))
 
-    family = request.form.get('family', '')
-    fertilizer = request.form.get('fertilizer', '')
-    try:
-        nitrogen = float(request.form.get('nitrogen', 0))
-        phosphorus = float(request.form.get('phosphorus', 0))
-        potassium = float(request.form.get('potassium', 0))
-    except ValueError:
-        return render_template('index.html', username=session['username'], error="Enter numeric values for N,P,K")
+    previous_crop = request.form.get('previous_crop', '').strip().title()
 
-    # Prepare input similarly to training
-    input_df = pd.DataFrame({
-        'Family': [family],
-        'Fertilizer Used': [fertilizer],
-        'Nitrogen (N) (%)': [nitrogen],
-        'Phosphorus (P) (%)': [phosphorus],
-        'Potassium (K) (%)': [potassium]
-    })
-    X_train = pd.get_dummies(df[['Family', 'Fertilizer Used', 'Nitrogen (N) (%)',
-                                'Phosphorus (P) (%)', 'Potassium (K) (%)']], drop_first=True)
-    input_df = pd.get_dummies(input_df, drop_first=True)
-    input_df = input_df.reindex(columns=X_train.columns, fill_value=0)
+    # Find fertilizer used for this crop
+    match = df[df['Crop'].str.title() == previous_crop]
 
-    # scale
-    num_cols = ['Nitrogen (N) (%)', 'Phosphorus (P) (%)', 'Potassium (K) (%)']
-    input_df[num_cols] = scaler.transform(input_df[num_cols])
+    if match.empty:
+        return render_template(
+            'index.html',
+            username=session['username'],
+            error=f"No data found for {previous_crop}."
+        )
 
-    prediction = model.predict(input_df)[0]
+    fertilizer_used = match['Fertilizer Used'].iloc[0]
 
-    return render_template('result.html', username=session['username'], result=prediction)
+    # Recommend other crops using the same fertilizer
+    recommended_crops = df[df['Fertilizer Used'] == fertilizer_used]['Crop'].unique().tolist()
+
+    # Remove the previous crop itself from recommendations
+    recommended_crops = [crop for crop in recommended_crops if crop.title() != previous_crop]
+
+    return render_template(
+        'result.html',
+        username=session['username'],
+        previous_crop=previous_crop,
+        fertilizer=fertilizer_used,
+        crops=recommended_crops
+    )
 
 if __name__ == '__main__':
     app.run(debug=True)
